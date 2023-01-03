@@ -3,33 +3,15 @@
 
 {% block content %}
 
-  <div class="container">    
-    <main id="main">
-      <div class="content">
-        <h2 id="sub-title">プロジェクト名：{{ object.project }}</h2>
-        <p>作成日 : {{ object.created_at }} | 更新日 : {{ object.updated_at }}</p>
-        
-        <div id="detail">
-          <h3 id="sub2-title">チーム名：{{ object.team }}</h3>
-          <p>
-            プロジェクトマネージャ- : {{ object.pm }} | 
-            メンバー1 : {{ object.second_menber }} | 
-            メンバー2 : {{ object.third_menber }}
-          </p>
-          
-          <h3 id="sub2-title">概要</h3>
-          <p>{{ object.description }}</p>
-          
-          <h3 id="sub2-title">Github</h3>
-          <a href="{{ object.url }}">{{ object.url }}</a>
-        </div>
-      <div>
-          
-      <div class="content-change">
-        <p><a href="{% url 'update' object.pk %}">更新</a></p>
-        <p><a href="{% url 'delete' object.pk %}">削除</a></p>
-      </div>     
-    </main>     
+  <div class="container">
+    <div class="content">  
+      <h2 class="sub-title">削除確認</h2>
+      <p id="delete-msg">{{ object.project }}を削除してもよろしいですか？</p>
+      <form method="post">
+        {% csrf_token %}
+        <input id="delete-btn" type="submit" value="削除">
+      </form>
+    </div>
   </div>
 
 {% endblock content %}
