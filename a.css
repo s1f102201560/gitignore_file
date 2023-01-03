@@ -3,57 +3,19 @@
 
 {% block content %}
 
-    <main id="main">
-        <div id="about" class="wrapper">
-            <h2 class="sub-title">概要</h2>
-            <p>
-                これまでINIADで作られた作品の一覧です。<br>
-                あなたも投稿してみましょう。
-            </p>
-        </div>
-
-        <div id="list" class="wrapper">
-            <h2 class="sub-title">一覧</h2>
-            <div class="list-wrapper">
-                {% for item in object_list %}
-                <ul class="list-ul">
-                    <li class="list-link">
-                        <a href="{% url 'detail' item.pk %}">
-                            <div class="card card-skin">
-                                <div class="card__textbox">
-                                    <div class="card_category_text">
-                                        {{ item.category }}
-                                    </div>
-                                    <div class="card_contents">
-                                        <div class="card__titletext">
-                                            {{ item.project }}
-                                        </div>
-                                        <div class="card_team">
-                                        チーム_{{ item.team }}     
-                                        </div>
-                                        <div class="card__created_at">
-                                            {{ item.created_at }}   
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                {% endfor %}
-            </div>
-        </div>
-
+      
+  <main id="main" class="container">
+    <div class="content">
+      <div class="content-title">
+        <h2 class="sub-title">{{ new }}</h2>
+      </div>
         
+      <form method="post" id="form">
+        {% csrf_token %}
+        {{ form.as_p }} <br>
+        <input id="btn" type="submit", value="{{ new_btn }}">
+      </form>
+    </div>
+  </main>    
 
-
-        
-        <section id="new" class="wrapper">
-            <h2 class="sub-title">新規投稿</h2>
-            <h3 class="sub2-title">新しいプロジェクトを投稿しよう！</h3>
-            <a id="home-new-btn" href="{% url 'create' %}">投稿画面</a>
-        </section>
-
-    </main>
-    
 {% endblock content %}
