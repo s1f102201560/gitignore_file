@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projector</title>
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link rel="stylesheet" href="{% static 'app/css/base.css' %}">
+  <link rel="shortcut icon" href="{% static 'app\img\favicon (1).ico' %}">
+</head>
+<body>
+
+    <header id="header" class="wrapper">
+        <h1 class="site-title">
+            <a href="{% url 'top' %}">Projector</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'top' %}">ホーム</a></li>
+                <li><a href="#about">概要</a></li>
+                <li><a href="#list">一覧</a></li>
+                <li><a href="#new">新規投稿</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr id="header-hr">
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <hr>
+    <footer id="footer">
+        <p>&copy; 2022-</p>
+    </footer>
+
+    
+</body>
+</html>

@@ -1,0 +1,94 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    
+  <main id="detail-main">
+      
+    <h2 class="sub-title">プロジェクト詳細</h2>
+
+    <div class="detail-card-skin">
+      <div class="detail-card-textbox">
+
+        <div class="detail-top-wrapper">
+          <div class="detail-label">プロジェクト名</div>
+          <div class="detail-content">
+            {{ object.project }}
+          </div>
+        </div>
+
+        <div class="detail-wrapper">
+          <div class="detail-label">概要</div>
+          <div class="detail-content">
+            {{ object.description }}
+          </div>
+        </div>
+
+        <div class="detail-wrapper">
+          <div class="detail-label">チーム名</div>
+          <div class="detail-content">
+            {{ object.team }}
+          </div>
+        </div>
+
+        <div class="detail-wrapper">
+          <div class="detail-label">PM</div>
+          <div class="detail-content">
+            {{ object.pm }}
+          </div>
+        </div>
+
+        <div class="detail-wrapper">
+          <div class="detail-label">メンバー１</div>
+          <div class="detail-content">
+            {{ object.second_menber }}
+          </div>
+        </div>
+
+        <div class="detail-wrapper">
+          <div class="detail-label">メンバー２</div>
+          <div class="detail-content">
+            {{ object.third_menber }}
+          </div>
+        </div>
+
+        <div class="detail-wrapper">
+          <div class="detail-label">URL</div>
+          <div class="detail-content">
+            <a href="{{ object.url }}">{{ object.url }}</a>
+          </div>
+        </div>
+
+        <div class="detail-wrapper">
+          <div class="detail-label">投稿日</div>
+          <div class="detail-content">
+            {{ object.created_at }}
+          </div>
+        </div>
+
+        <div class="detail-wrapper">
+          <div class="detail-label">更新日</div>
+          <div class="detail-content">
+            {{ object.updated_at }}
+          </div>
+        </div>
+
+        <div class="detail-wrapper">
+          <div class="detail-label">セメスター</div>
+          <div class="detail-content">
+            {{ object.category }}
+          </div>
+        </div>
+
+        <div class="content-change">
+          <a id="detail-update-btn" href="{% url 'update' object.pk %}">更新</a>
+          <a id="detail-delete-btn" href="{% url 'delete' object.pk %}">削除</a>
+        </div> 
+      </div>
+    </div> 
+
+  </main>     
+
+
+{% endblock content %}
